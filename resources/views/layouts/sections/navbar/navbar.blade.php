@@ -25,6 +25,9 @@ $navbarDetached = ($navbarDetached ?? '');
       </div>
       @endif
 
+      <a href="{{ action(\App\Http\Controllers\MyBusController::class.'@create') }}" class="btn btn-xs btn-outline-primary">Dodaj autobus</a>
+
+
       <!-- ! Not required for layout-without-menu -->
       @if(!isset($navbarHideToggle))
       <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0{{ isset($menuHorizontal) ? ' d-xl-none ' : '' }} {{ isset($contentNavbar) ?' d-xl-none ' : '' }}">
@@ -35,20 +38,17 @@ $navbarDetached = ($navbarDetached ?? '');
       @endif
 
       <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-        <!-- Search -->
-        <div class="navbar-nav align-items-center">
-          <div class="nav-item d-flex align-items-center">
-            <i class="bx bx-search fs-4 lh-0"></i>
-            <input type="text" class="form-control border-0 shadow-none" placeholder="Search..." aria-label="Search...">
-          </div>
-        </div>
-        <!-- /Search -->
+
         <ul class="navbar-nav flex-row align-items-center ms-auto">
+
 
           <!-- Place this tag where you want the button to render. -->
           <li class="nav-item lh-1 me-3">
             <a class="github-button" href="https://github.com/themeselection/sneat-html-laravel-admin-template-free" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star themeselection/sneat-html-laravel-admin-template-free on GitHub">Star</a>
           </li>
+
+
+
 
           <!-- User -->
           <li class="nav-item navbar-dropdown dropdown-user dropdown">
@@ -68,7 +68,7 @@ $navbarDetached = ($navbarDetached ?? '');
                     </div>
                     <div class="flex-grow-1">
                       <span class="fw-semibold d-block">John Doe</span>
-                      <small class="text-muted">Admin</small>
+                      <small class="text-muted">Użytkownik</small>
                     </div>
                   </div>
                 </a>
@@ -79,22 +79,7 @@ $navbarDetached = ($navbarDetached ?? '');
               <li>
                 <a class="dropdown-item" href="javascript:void(0);">
                   <i class="bx bx-user me-2"></i>
-                  <span class="align-middle">My Profile</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="javascript:void(0);">
-                  <i class='bx bx-cog me-2'></i>
-                  <span class="align-middle">Settings</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="javascript:void(0);">
-                  <span class="d-flex align-items-center align-middle">
-                    <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                    <span class="flex-grow-1 align-middle">Billing</span>
-                    <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                  </span>
+                  <span class="align-middle">Mój Profil</span>
                 </a>
               </li>
               <li>
@@ -103,7 +88,7 @@ $navbarDetached = ($navbarDetached ?? '');
               <li>
                 <a class="dropdown-item" href="javascript:void(0);">
                   <i class='bx bx-power-off me-2'></i>
-                  <span class="align-middle">Log Out</span>
+                  <span class="align-middle">Wyloguj</span>
                 </a>
               </li>
             </ul>
@@ -116,4 +101,5 @@ $navbarDetached = ($navbarDetached ?? '');
     </div>
     @endif
   </nav>
+</nav>
   <!-- / Navbar -->

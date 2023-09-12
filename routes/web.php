@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyBusController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::resource('my_bus', MyBusController::class);
+
 
 $controller_path = 'App\Http\Controllers';
 

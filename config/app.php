@@ -58,6 +58,8 @@ return [
 
   'asset_url' => env('ASSET_URL'),
 
+  'api_gdansk_buses' => env('API_GDANSK_BUSES', ''),
+
   /*
     |--------------------------------------------------------------------------
     | Application Timezone

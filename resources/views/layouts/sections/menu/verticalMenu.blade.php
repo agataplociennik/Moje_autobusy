@@ -22,7 +22,7 @@
     <li class="menu-item">
       <a href="{{ action(\App\Http\Controllers\MyBusController::class.'@index') }}" class="menu-link">
         <i class='bx bx-bus'></i>
-        <div>Mój autobus</div>
+        <div>Moje autobusy</div>
       </a>
     </li>
     <!-- Przycisk Dodaj autoubus -->

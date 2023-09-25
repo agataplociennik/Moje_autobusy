@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Services\BusApiService;
 use App\Models\MyBus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MyBusController extends Controller
 {
@@ -17,7 +18,8 @@ class MyBusController extends Controller
 
   public function index()
   {
-    $mySelected = MyBus::all();
+    $mySelected = MyBus::where('user_id', Auth::user()->id)->get();
+
     return view('content.my_bus.index',
       [
         'vehicles' => $mySelected
@@ -26,7 +28,7 @@ class MyBusController extends Controller
 
   public function create()
   {
-    $mySelected = MyBus::all();
+    $mySelected = MyBus::where('user_id', Auth::user()->id)->get();
     $list = $this->busApiService->get();
     return view('content.my_bus.create',
       [
@@ -39,7 +41,7 @@ class MyBusController extends Controller
   {
     $selectedItems = $request->get('selected_items');
 
-    $myBus = MyBus::all();
+    $myBus = MyBus::where('user_id', Auth::user()->id)->get();
     foreach ($myBus as $bus) {
       $bus->delete();
     }
@@ -48,6 +50,7 @@ class MyBusController extends Controller
     foreach ($selectedItems as $item) {
       $newMyBuses = new MyBus();
       $newMyBuses->number = $item;
+      $newMyBuses->user_id = Auth::user()->id;
       $newMyBuses->save();
     }
 
@@ -56,7 +59,10 @@ class MyBusController extends Controller
 
   public function show(string $id)
   {
-    $vehicle = MyBus::find($id);
+    $vehicle = MyBus::where([
+      'id' => $id,
+      'user_id' => Auth::user()->id
+    ])->get();
     $routeShortName = $vehicle->number;
     return view('content.my_bus.show',
       [

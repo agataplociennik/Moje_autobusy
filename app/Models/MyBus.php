@@ -12,4 +12,9 @@ class MyBus extends Model
   use HasFactory;
 
   protected $fillable = ['number'];
+
+  public function user()
+  {
+    return $this->belongsTo(User::class);
+  }
 }

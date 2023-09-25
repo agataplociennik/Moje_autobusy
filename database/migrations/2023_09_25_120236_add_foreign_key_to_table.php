@@ -13,11 +13,8 @@ return new class extends Migration {
    */
   public function up(): void
   {
-    Schema::create(MyBus::TABLE, function (Blueprint $table) {
-      $table->id();
-      $table->unsignedBigInteger('user_id');
-      $table->string('number');
-      $table->timestamps();
+    Schema::table(MyBus::TABLE, function (Blueprint $table) {
+      $table->foreign('user_id')->references('id')->on('users');
     });
   }
 
@@ -28,6 +25,8 @@ return new class extends Migration {
    */
   public function down(): void
   {
-    Schema::dropIfExists(MyBus::TABLE);
+    Schema::table(MyBus::TABLE, function (Blueprint $table) {
+      $table->dropForeign('user_id');
+    });
   }
 };

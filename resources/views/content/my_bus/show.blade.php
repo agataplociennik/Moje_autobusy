@@ -1,7 +1,5 @@
 @extends('layouts.contentNavbarLayout')
 
-@section('title', 'Tables - Basic Tables')
-
 @section('content')
   <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <h4 class="fw-bold py-3 mb-4">
@@ -31,21 +29,12 @@
             <td>{{ $vehicle->delay }} sekund</td>
             <td><a target="_blank" href="https://www.google.com/maps/place/{{ $vehicle->lat }},{{ $vehicle->lon }}">{{ $vehicle->lat }},{{ $vehicle->lon }}</a></td>
             <td>
-              <div class="dropdown">
-                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i
-                    class="bx bx-dots-vertical-rounded"></i></button>
-                <div class="dropdown-menu">
-                </div>
-              </div>
             </td>
           </tr>
         @endforeach
         </tbody>
       </table>
-
-
     </div>
   </div>
   <!--/ Basic Bootstrap Table -->
-  <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 @endsection

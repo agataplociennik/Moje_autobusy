@@ -44,7 +44,7 @@ $navbarDetached = ($navbarDetached ?? '');
           <li class="nav-item navbar-dropdown dropdown-user dropdown">
             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
               <div class="avatar avatar-online">
-                <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle">
+                <img src="https://png.pngtree.com/png-vector/20191116/ourmid/pngtree-young-service-boy-vector-download-user-icon-vector-avatar-png-image_1991056.jpg" id="icon" alt class="w-px-40 h-auto rounded-circle">
               </div>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -53,11 +53,11 @@ $navbarDetached = ($navbarDetached ?? '');
                   <div class="d-flex">
                     <div class="flex-shrink-0 me-3">
                       <div class="avatar avatar-online">
-                        <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle">
+                        <img src="https://png.pngtree.com/png-vector/20191116/ourmid/pngtree-young-service-boy-vector-download-user-icon-vector-avatar-png-image_1991056.jpg" id="icon" alt class="w-px-40 h-auto rounded-circle">
                       </div>
                     </div>
                     <div class="flex-grow-1">
-                      <span class="fw-semibold d-block">John Doe</span>
+                      <span class="fw-semibold d-block">{{ Auth::User()->name }}</span>
                       <small class="text-muted">Użytkownik</small>
                     </div>
                   </div>
@@ -65,22 +65,27 @@ $navbarDetached = ($navbarDetached ?? '');
               </li>
               <li>
                 <div class="dropdown-divider"></div>
-              </li>
-              <li>
-                <a class="dropdown-item" href="javascript:void(0);">
-                  <i class="bx bx-user me-2"></i>
-                  <span class="align-middle">Mój Profil</span>
-                </a>
-              </li>
-              <li>
-                <div class="dropdown-divider"></div>
-              </li>
-              <li>
-                <a class="dropdown-item" href="javascript:void(0);">
-                  <i class='bx bx-power-off me-2'></i>
-                  <span class="align-middle">Wyloguj</span>
-                </a>
-              </li>
+{{--              </li>--}}
+{{--              <li>--}}
+{{--                <a class="dropdown-item" href="javascript:void(0);">--}}
+{{--                  <i class="bx bx-user me-2"></i>--}}
+{{--                  <span class="align-middle">Mój Profil</span>--}}
+{{--                </a>--}}
+{{--              </li>--}}
+{{--              <li>--}}
+{{--                <div class="dropdown-divider"></div>--}}
+{{--              </li>--}}
+
+                @auth
+                  <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="dropdown-item">
+                      <i class="bx bx-power-off me-2"></i>
+                      <span class="align-middle">Wyloguj</span>
+                    </button>
+                  </form>
+              @endauth
+
             </ul>
           </li>
           <!--/ User -->

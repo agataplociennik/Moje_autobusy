@@ -295,7 +295,7 @@
 
     <!-- Zaloguj się -->
     <div id="formFooter">
-      <a class="underlineHover" href="{{ url('login') }}">Zaoguj się</a>
+      <a class="underlineHover" href="{{ url('login') }}">Zaloguj się</a>
     </div>
 
   </div>

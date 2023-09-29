@@ -62,7 +62,7 @@ class MyBusController extends Controller
     $vehicle = MyBus::where([
       'id' => $id,
       'user_id' => Auth::user()->id
-    ])->get();
+    ])->first();
     $routeShortName = $vehicle->number;
     return view('content.my_bus.show',
       [
